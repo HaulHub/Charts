@@ -708,7 +708,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 // if the user moved some amout in the Y direction greater than a threshold then don't move the
                 //chart and pass up to outer scroll
                 
-                if abs(translation.y) > 10 {
+                if abs(translation.y) > 3.0 {
                     if _outerScrollView !== nil
                     {
                         // We can stop dragging right now, and let the scroll view take control

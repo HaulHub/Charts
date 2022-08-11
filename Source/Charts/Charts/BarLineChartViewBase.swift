@@ -710,7 +710,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 
                 print ("Y Translation: \(translation.y)")
                 
-                if abs(translation.y) > 3.0 {
+                if abs(translation.y) >= 0.0 {
                     if _outerScrollView !== nil
                     {
                         // We can stop dragging right now, and let the scroll view take control

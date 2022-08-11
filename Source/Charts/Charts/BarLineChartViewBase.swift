@@ -707,7 +707,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 
                 // if the user moved some amout in the Y direction greater than a threshold then don't move the
                 //chart and pass up to outer scroll
-                
+                //DLargen added this !!!!
                 print ("Y Translation: \(translation.y)")
                 
                 if abs(translation.y) > 0.0 {

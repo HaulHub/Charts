@@ -705,21 +705,6 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                     translation.y = 0.0
                 }
                 
-                // if the user moved some amout in the Y direction greater than a threshold then don't move the
-                //chart and pass up to outer scroll
-                //DLargen added this !!!!
-                print ("Y Translation: \(translation.y)")
-                
-                if abs(translation.y) > 0.0 {
-                    if _outerScrollView !== nil
-                    {
-                        // We can stop dragging right now, and let the scroll view take control
-                        _outerScrollView = nil
-                        _isDragging = false
-                    }
-                    return
-                }
-                
                 let didUserDrag = translation.x != 0.0 || translation.y != 0.0
         
                 // Check to see if user dragged at all and if so, can the chart be dragged by the given amount
@@ -732,14 +717,15 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                         _isDragging = false
                     }
                 }
-                else
+                //Commented out by DRL 8/12/2022  Let outer scroll handle the event as well
+                /*else
                 {
                     if _outerScrollView !== nil
                     {
                         // Prevent the parent scroll view from scrolling
-                        _outerScrollView?.nsuiIsScrollEnabled = false
+                        //_outerScrollView?.nsuiIsScrollEnabled = false
                     }
-                }
+                }*/
                 
                 _lastPanPoint = recognizer.translation(in: self)
             }
